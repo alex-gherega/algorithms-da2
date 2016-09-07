@@ -1,15 +1,9 @@
 (ns ^{:doc "Utilities for creating a scheduling of jobs"
       :author "avr.eng.phd. Alex Gherega"}
-    scheduling.utils)
+    scheduling.utils
+  (:require [utils :as wols]))
 
 (def input "resources/jobs.txt")
-
-(defn read-jobs [input]
-  ;;(with-open [rdr (clojure.java.io/reader input)])
-  (line-seq (clojure.java.io/reader input)))
-
-(defn convert-line [l]
-  (read-string (str "[" l "]")))
 
 (defn extract-weight [booked-line]
   (-> booked-line second first))
@@ -22,7 +16,7 @@
 
 ;; this can and should be optimized by returning a map from the getgo without traversing the sequence twice (i.e. without into)
 (defn map-jobs [input f]
-  (let [input (read-jobs input)]
+  (let [input (wols/read-lines input)]
     (into {} (map-indexed #(array-map %1
                                       (f %2))
                           (drop 1 input)))))

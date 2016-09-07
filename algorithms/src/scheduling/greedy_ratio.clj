@@ -2,7 +2,8 @@
             diffrerence (weight - length)"
      :author "avr.eng.phd. Alex Gherega"}
     scheduling.greedy-ratio
-  (:require [scheduling.utils :as utils]))
+  (:require [utils :as wols]
+            [scheduling.utils :as utils]))
 
 ;; In this programming problem and the next you'll code up the greedy algorithms from lecture for minimizing the weighted sum of completion times..
 
@@ -38,7 +39,7 @@
 ;; g) compute the sum of weighted completion times
 
 (defn book-line [l]
-  (let [v (utils/convert-line l)]
+  (let [v (wols/convert-line l)]
     [(apply / v) v]))
 
 ;; instead on relying on sort-by should write you own sort or Comparator with better almost linear time

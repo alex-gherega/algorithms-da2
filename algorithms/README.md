@@ -1,9 +1,10 @@
-# week-one
+# algorithms
 
-A Clojure library designed to ... well, that part is up to you.
+Some eaxmples of solving problmes with various algorithms
 
 ## Usage
 
+Just open your favorite Clojure REPL and run examples from try-it.clj
 FIXME
 
 ## License
